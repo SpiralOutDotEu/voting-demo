@@ -8,6 +8,9 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@aztec/bb.js": "^0.16.9",
+    "@noir-lang/backend_barretenberg": "^0.19.4",
+    "@noir-lang/noir_js": "^0.19.4",
     "@openzeppelin/merkle-tree": "^1.0.5",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
@@ -28,5 +31,8 @@
     "vike": "^0.4.151",
     "vite": "^4.5.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "vite-plugin-top-level-await": "^1.4.1"
+  }
 }
