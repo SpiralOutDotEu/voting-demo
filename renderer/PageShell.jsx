@@ -31,6 +31,9 @@ function PageShell({ pageContext, children }) {
             <Link className="navitem" href="/noirmerkle">
               Noir Merkle Tree
             </Link>
+            <Link className="navitem" href="/ballot">
+              Ballot
+            </Link>
           </Sidebar>
           <Content>{children}</Content>
         </Layout>

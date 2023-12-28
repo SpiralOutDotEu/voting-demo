@@ -1,0 +1,1333 @@
+{
+  "abi": [
+    { "type": "constructor", "inputs": [], "stateMutability": "nonpayable" },
+    {
+      "type": "function",
+      "name": "ballots",
+      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract Ballot" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "createBallot",
+      "inputs": [
+        { "name": "root", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "text", "type": "string", "internalType": "string" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "getBallot",
+      "inputs": [
+        { "name": "index", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract Ballot" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getNumberOfBallots",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "renounceOwnership",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "inputs": [
+        { "name": "newOwner", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "BallotCreated",
+      "inputs": [
+        {
+          "name": "ballotAddress",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "OwnershipTransferred",
+      "inputs": [
+        {
+          "name": "previousOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "newOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "OwnableInvalidOwner",
+      "inputs": [
+        { "name": "owner", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "OwnableUnauthorizedAccount",
+      "inputs": [
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b50338061003757604051631e4fbdf760e01b81526000600482015260240160405180910390fd5b61004081610046565b50610096565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b610e67806100a56000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c80638da5cb5b1161005b5780638da5cb5b146100cd578063b49055f6146100de578063f2fde38b146100f1578063f9d5ee751461010457600080fd5b806352e2d6e9146100825780635c632b3814610098578063715018a6146100c3575b600080fd5b6001546040519081526020015b60405180910390f35b6100ab6100a636600461035c565b610117565b6040516001600160a01b03909116815260200161008f565b6100cb610141565b005b6000546001600160a01b03166100ab565b6100cb6100ec36600461038b565b610155565b6100cb6100ff366004610446565b61021d565b6100ab61011236600461035c565b610260565b6001818154811061012757600080fd5b6000918252602090912001546001600160a01b0316905081565b6101496102d2565b61015360006102ff565b565b61015d6102d2565b6000828260405161016d9061034f565b610178929190610476565b604051809103906000f080158015610194573d6000803e3d6000fd5b506001805480820182556000919091527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b0319166001600160a01b0383169081179091556040519081529091507f165f4a0bebf649c196135ba0519a9a51da33d33a9e4d096b71050c2c97ec670f9060200160405180910390a1505050565b6102256102d2565b6001600160a01b03811661025457604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61025d816102ff565b50565b60015460009082106102a45760405162461bcd60e51b815260206004820152600d60248201526c092dcecc2d8d2c840d2dcc8caf609b1b604482015260640161024b565b600182815481106102b7576102b76104cd565b6000918252602090912001546001600160a01b031692915050565b6000546001600160a01b031633146101535760405163118cdaa760e01b815233600482015260240161024b565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b61094e806104e483390190565b60006020828403121561036e57600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561039e57600080fd5b82359150602083013567ffffffffffffffff808211156103bd57600080fd5b818501915085601f8301126103d157600080fd5b8135818111156103e3576103e3610375565b604051601f8201601f19908116603f0116810190838211818310171561040b5761040b610375565b8160405282815288602084870101111561042457600080fd5b8260208601602083013760006020848301015280955050505050509250929050565b60006020828403121561045857600080fd5b81356001600160a01b038116811461046f57600080fd5b9392505050565b8281526000602060406020840152835180604085015260005b818110156104ab5785810183015185820160600152820161048f565b506000606082860101526060601f19601f830116850101925050509392505050565b634e487b7160e01b600052603260045260246000fdfe608060405234801561001057600080fd5b5060405161094e38038061094e83398101604081905261002f9161005e565b6001829055600061004082826101bd565b50505061027c565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561007157600080fd5b8251602080850151919350906001600160401b038082111561009257600080fd5b818601915086601f8301126100a657600080fd5b8151818111156100b8576100b8610048565b604051601f8201601f19908116603f011681019083821181831017156100e0576100e0610048565b8160405282815289868487010111156100f857600080fd5b600093505b8284101561011a57848401860151818501870152928501926100fd565b60008684830101528096505050505050509250929050565b600181811c9082168061014657607f821691505b60208210810361016657634e487b7160e01b600052602260045260246000fd5b50919050565b601f8211156101b8576000816000526020600020601f850160051c810160208610156101955750805b601f850160051c820191505b818110156101b4578281556001016101a1565b5050505b505050565b81516001600160401b038111156101d6576101d6610048565b6101ea816101e48454610132565b8461016c565b602080601f83116001811461021f57600084156102075750858301515b600019600386901b1c1916600185901b1785556101b4565b600085815260208120601f198616915b8281101561024e5788860151825594840194600190910190840161022f565b508582101561026c5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b6106c38061028b6000396000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c806381c8cb9b1161005b57806381c8cb9b1461010c578063b5b47f4214610121578063f7cc06131461012a578063fb286c651461013d57600080fd5b806309eef43e1461008d57806320cfa3c4146100c55780632eb4a7ab146100da5780634717f97c146100f1575b600080fd5b6100b061009b366004610438565b60026020526000908152604090205460ff1681565b60405190151581526020015b60405180910390f35b6100d86100d3366004610453565b610146565b005b6100e360015481565b6040519081526020016100bc565b600354600454604080519283526020830191909152016100bc565b610114610262565b6040516100bc91906104e0565b6100e360045481565b6100b0610138366004610545565b6102f0565b6100e360035481565b3360009081526002602052604090205460ff161561019b5760405162461bcd60e51b815260206004820152600d60248201526c105b1c9958591e481d9bdd1959609a1b60448201526064015b60405180910390fd5b6101d8338383808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152506102f092505050565b6102185760405162461bcd60e51b81526020600482015260116024820152702737ba1030903b30b634b2103b37ba32b960791b6044820152606401610192565b336000908152600260205260409020805460ff191660011790558215610252576003805490600061024883610616565b9190505550505050565b6004805490600061024883610616565b6000805461026f9061063d565b80601f016020809104026020016040519081016040528092919081815260200182805461029b9061063d565b80156102e85780601f106102bd576101008083540402835291602001916102e8565b820191906000526020600020905b8154815290600101906020018083116102cb57829003601f168201915b505050505081565b604080516001600160a01b038416602082015260009182910160408051601f198184030181528282528051602091820120908301520160405160208183030381529060405280519060200120905061034b8360015483610391565b6103875760405162461bcd60e51b815260206004820152600d60248201526c24b73b30b634b210383937b7b360991b6044820152606401610192565b5060019392505050565b60008261039e85846103a7565b14949350505050565b600081815b84518110156103e2576103d8828683815181106103cb576103cb610677565b60200260200101516103ea565b91506001016103ac565b509392505050565b6000818310610406576000828152602084905260409020610415565b60008381526020839052604090205b9392505050565b80356001600160a01b038116811461043357600080fd5b919050565b60006020828403121561044a57600080fd5b6104158261041c565b60008060006040848603121561046857600080fd5b8335801515811461047857600080fd5b9250602084013567ffffffffffffffff8082111561049557600080fd5b818601915086601f8301126104a957600080fd5b8135818111156104b857600080fd5b8760208260051b85010111156104cd57600080fd5b6020830194508093505050509250925092565b60006020808352835180602085015260005b8181101561050e578581018301518582016040015282016104f2565b506000604082860101526040601f19601f8301168501019250505092915050565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561055857600080fd5b6105618361041c565b915060208084013567ffffffffffffffff8082111561057f57600080fd5b818601915086601f83011261059357600080fd5b8135818111156105a5576105a561052f565b8060051b604051601f19603f830116810181811085821117156105ca576105ca61052f565b6040529182528482019250838101850191898311156105e857600080fd5b938501935b82851015610606578435845293850193928501926105ed565b8096505050505050509250929050565b60006001820161063657634e487b7160e01b600052601160045260246000fd5b5060010190565b600181811c9082168061065157607f821691505b60208210810361067157634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052603260045260246000fdfea2646970667358221220b7eb187f5b78a3b2c7871def9e5634af19eb430fc09c2575a7f398fb181a4a6464736f6c63430008170033a264697066735822122043c219c79c36e1cafad027f4008463ccfa3d2b68aafae5d309c88dd4db5b712564736f6c63430008170033",
+    "sourceMap": "134:644:24:-:0;;;204:36;;;;;;;;;-1:-1:-1;226:10:24;;1269:95:20;;1322:31;;-1:-1:-1;;;1322:31:20;;1350:1;1322:31;;;160:51:27;133:18;;1322:31:20;;;;;;;1269:95;1373:32;1392:12;1373:18;:32::i;:::-;1225:187;134:644:24;;2912:187:20;2985:16;3004:6;;-1:-1:-1;;;;;3020:17:20;;;-1:-1:-1;;;;;;3020:17:20;;;;;;3052:40;;3004:6;;;;;;;3052:40;;2985:16;3052:40;2975:124;2912:187;:::o;14:203:27:-;134:644:24;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c80638da5cb5b1161005b5780638da5cb5b146100cd578063b49055f6146100de578063f2fde38b146100f1578063f9d5ee751461010457600080fd5b806352e2d6e9146100825780635c632b3814610098578063715018a6146100c3575b600080fd5b6001546040519081526020015b60405180910390f35b6100ab6100a636600461035c565b610117565b6040516001600160a01b03909116815260200161008f565b6100cb610141565b005b6000546001600160a01b03166100ab565b6100cb6100ec36600461038b565b610155565b6100cb6100ff366004610446565b61021d565b6100ab61011236600461035c565b610260565b6001818154811061012757600080fd5b6000918252602090912001546001600160a01b0316905081565b6101496102d2565b61015360006102ff565b565b61015d6102d2565b6000828260405161016d9061034f565b610178929190610476565b604051809103906000f080158015610194573d6000803e3d6000fd5b506001805480820182556000919091527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b0319166001600160a01b0383169081179091556040519081529091507f165f4a0bebf649c196135ba0519a9a51da33d33a9e4d096b71050c2c97ec670f9060200160405180910390a1505050565b6102256102d2565b6001600160a01b03811661025457604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61025d816102ff565b50565b60015460009082106102a45760405162461bcd60e51b815260206004820152600d60248201526c092dcecc2d8d2c840d2dcc8caf609b1b604482015260640161024b565b600182815481106102b7576102b76104cd565b6000918252602090912001546001600160a01b031692915050565b6000546001600160a01b031633146101535760405163118cdaa760e01b815233600482015260240161024b565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b61094e806104e483390190565b60006020828403121561036e57600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561039e57600080fd5b82359150602083013567ffffffffffffffff808211156103bd57600080fd5b818501915085601f8301126103d157600080fd5b8135818111156103e3576103e3610375565b604051601f8201601f19908116603f0116810190838211818310171561040b5761040b610375565b8160405282815288602084870101111561042457600080fd5b8260208601602083013760006020848301015280955050505050509250929050565b60006020828403121561045857600080fd5b81356001600160a01b038116811461046f57600080fd5b9392505050565b8281526000602060406020840152835180604085015260005b818110156104ab5785810183015185820160600152820161048f565b506000606082860101526060601f19601f830116850101925050509392505050565b634e487b7160e01b600052603260045260246000fdfe608060405234801561001057600080fd5b5060405161094e38038061094e83398101604081905261002f9161005e565b6001829055600061004082826101bd565b50505061027c565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561007157600080fd5b8251602080850151919350906001600160401b038082111561009257600080fd5b818601915086601f8301126100a657600080fd5b8151818111156100b8576100b8610048565b604051601f8201601f19908116603f011681019083821181831017156100e0576100e0610048565b8160405282815289868487010111156100f857600080fd5b600093505b8284101561011a57848401860151818501870152928501926100fd565b60008684830101528096505050505050509250929050565b600181811c9082168061014657607f821691505b60208210810361016657634e487b7160e01b600052602260045260246000fd5b50919050565b601f8211156101b8576000816000526020600020601f850160051c810160208610156101955750805b601f850160051c820191505b818110156101b4578281556001016101a1565b5050505b505050565b81516001600160401b038111156101d6576101d6610048565b6101ea816101e48454610132565b8461016c565b602080601f83116001811461021f57600084156102075750858301515b600019600386901b1c1916600185901b1785556101b4565b600085815260208120601f198616915b8281101561024e5788860151825594840194600190910190840161022f565b508582101561026c5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b6106c38061028b6000396000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c806381c8cb9b1161005b57806381c8cb9b1461010c578063b5b47f4214610121578063f7cc06131461012a578063fb286c651461013d57600080fd5b806309eef43e1461008d57806320cfa3c4146100c55780632eb4a7ab146100da5780634717f97c146100f1575b600080fd5b6100b061009b366004610438565b60026020526000908152604090205460ff1681565b60405190151581526020015b60405180910390f35b6100d86100d3366004610453565b610146565b005b6100e360015481565b6040519081526020016100bc565b600354600454604080519283526020830191909152016100bc565b610114610262565b6040516100bc91906104e0565b6100e360045481565b6100b0610138366004610545565b6102f0565b6100e360035481565b3360009081526002602052604090205460ff161561019b5760405162461bcd60e51b815260206004820152600d60248201526c105b1c9958591e481d9bdd1959609a1b60448201526064015b60405180910390fd5b6101d8338383808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152506102f092505050565b6102185760405162461bcd60e51b81526020600482015260116024820152702737ba1030903b30b634b2103b37ba32b960791b6044820152606401610192565b336000908152600260205260409020805460ff191660011790558215610252576003805490600061024883610616565b9190505550505050565b6004805490600061024883610616565b6000805461026f9061063d565b80601f016020809104026020016040519081016040528092919081815260200182805461029b9061063d565b80156102e85780601f106102bd576101008083540402835291602001916102e8565b820191906000526020600020905b8154815290600101906020018083116102cb57829003601f168201915b505050505081565b604080516001600160a01b038416602082015260009182910160408051601f198184030181528282528051602091820120908301520160405160208183030381529060405280519060200120905061034b8360015483610391565b6103875760405162461bcd60e51b815260206004820152600d60248201526c24b73b30b634b210383937b7b360991b6044820152606401610192565b5060019392505050565b60008261039e85846103a7565b14949350505050565b600081815b84518110156103e2576103d8828683815181106103cb576103cb610677565b60200260200101516103ea565b91506001016103ac565b509392505050565b6000818310610406576000828152602084905260409020610415565b60008381526020839052604090205b9392505050565b80356001600160a01b038116811461043357600080fd5b919050565b60006020828403121561044a57600080fd5b6104158261041c565b60008060006040848603121561046857600080fd5b8335801515811461047857600080fd5b9250602084013567ffffffffffffffff8082111561049557600080fd5b818601915086601f8301126104a957600080fd5b8135818111156104b857600080fd5b8760208260051b85010111156104cd57600080fd5b6020830194508093505050509250925092565b60006020808352835180602085015260005b8181101561050e578581018301518582016040015282016104f2565b506000604082860101526040601f19601f8301168501019250505092915050565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561055857600080fd5b6105618361041c565b915060208084013567ffffffffffffffff8082111561057f57600080fd5b818601915086601f83011261059357600080fd5b8135818111156105a5576105a561052f565b8060051b604051601f19603f830116810181811085821117156105ca576105ca61052f565b6040529182528482019250838101850191898311156105e857600080fd5b938501935b82851015610606578435845293850193928501926105ed565b8096505050505050509250929050565b60006001820161063657634e487b7160e01b600052601160045260246000fd5b5060010190565b600181811c9082168061065157607f821691505b60208210810361067157634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052603260045260246000fdfea2646970667358221220b7eb187f5b78a3b2c7871def9e5634af19eb430fc09c2575a7f398fb181a4a6464736f6c63430008170033a264697066735822122043c219c79c36e1cafad027f4008463ccfa3d2b68aafae5d309c88dd4db5b712564736f6c63430008170033",
+    "sourceMap": "134:644:24:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;678:98;755:7;:14;678:98;;160:25:27;;;148:2;133:18;678:98:24;;;;;;;;174:23;;;;;;:::i;:::-;;:::i;:::-;;;-1:-1:-1;;;;;561:32:27;;;543:51;;531:2;516:18;174:23:24;381:219:27;2293:101:20;;;:::i;:::-;;1638:85;1684:7;1710:6;-1:-1:-1;;;;;1710:6:20;1638:85;;295:212:24;;;;;;:::i;:::-;;:::i;2543:215:20:-;;;;;;:::i;:::-;;:::i;513:159:24:-;;;;;;:::i;:::-;;:::i;174:23::-;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;174:23:24;;-1:-1:-1;174:23:24;:::o;2293:101:20:-;1531:13;:11;:13::i;:::-;2357:30:::1;2384:1;2357:18;:30::i;:::-;2293:101::o:0;295:212:24:-;1531:13:20;:11;:13::i;:::-;378:16:24::1;408:4;414;397:22;;;;;:::i;:::-;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;::::0;::::1;;;;;-1:-1:-1::0;429:7:24::1;:23:::0;;;;::::1;::::0;;-1:-1:-1;429:23:24;;;;;::::1;::::0;;-1:-1:-1;;;;;;429:23:24::1;-1:-1:-1::0;;;;;429:23:24;::::1;::::0;;::::1;::::0;;;467:33:::1;::::0;543:51:27;;;429:23:24;;-1:-1:-1;467:33:24::1;::::0;531:2:27;516:18;467:33:24::1;;;;;;;368:139;295:212:::0;;:::o;2543:215:20:-;1531:13;:11;:13::i;:::-;-1:-1:-1;;;;;2627:22:20;::::1;2623:91;;2672:31;::::0;-1:-1:-1;;;2672:31:20;;2700:1:::1;2672:31;::::0;::::1;543:51:27::0;516:18;;2672:31:20::1;;;;;;;;2623:91;2723:28;2742:8;2723:18;:28::i;:::-;2543:215:::0;:::o;513:159:24:-;602:7;:14;568:6;;594:22;;586:48;;;;-1:-1:-1;;;586:48:24;;3057:2:27;586:48:24;;;3039:21:27;3096:2;3076:18;;;3069:30;-1:-1:-1;;;3115:18:27;;;3108:43;3168:18;;586:48:24;2855:337:27;586:48:24;651:7;659:5;651:14;;;;;;;;:::i;:::-;;;;;;;;;;;-1:-1:-1;;;;;651:14:24;;513:159;-1:-1:-1;;513:159:24:o;1796:162:20:-;1684:7;1710:6;-1:-1:-1;;;;;1710:6:20;735:10:21;1855:23:20;1851:101;;1901:40;;-1:-1:-1;;;1901:40:20;;735:10:21;1901:40:20;;;543:51:27;516:18;;1901:40:20;381:219:27;2912:187:20;2985:16;3004:6;;-1:-1:-1;;;;;3020:17:20;;;-1:-1:-1;;;;;;3020:17:20;;;;;;3052:40;;3004:6;;;;;;;3052:40;;2985:16;3052:40;2975:124;2912:187;:::o;-1:-1:-1:-;;;;;;;;:::o;196:180:27:-;255:6;308:2;296:9;287:7;283:23;279:32;276:52;;;324:1;321;314:12;276:52;-1:-1:-1;347:23:27;;196:180;-1:-1:-1;196:180:27:o;813:127::-;874:10;869:3;865:20;862:1;855:31;905:4;902:1;895:15;929:4;926:1;919:15;945:990;1023:6;1031;1084:2;1072:9;1063:7;1059:23;1055:32;1052:52;;;1100:1;1097;1090:12;1052:52;1136:9;1123:23;1113:33;;1197:2;1186:9;1182:18;1169:32;1220:18;1261:2;1253:6;1250:14;1247:34;;;1277:1;1274;1267:12;1247:34;1315:6;1304:9;1300:22;1290:32;;1360:7;1353:4;1349:2;1345:13;1341:27;1331:55;;1382:1;1379;1372:12;1331:55;1418:2;1405:16;1440:2;1436;1433:10;1430:36;;;1446:18;;:::i;:::-;1521:2;1515:9;1489:2;1575:13;;-1:-1:-1;;1571:22:27;;;1595:2;1567:31;1563:40;1551:53;;;1619:18;;;1639:22;;;1616:46;1613:72;;;1665:18;;:::i;:::-;1705:10;1701:2;1694:22;1740:2;1732:6;1725:18;1780:7;1775:2;1770;1766;1762:11;1758:20;1755:33;1752:53;;;1801:1;1798;1791:12;1752:53;1857:2;1852;1848;1844:11;1839:2;1831:6;1827:15;1814:46;1902:1;1897:2;1892;1884:6;1880:15;1876:24;1869:35;1923:6;1913:16;;;;;;;945:990;;;;;:::o;1940:286::-;1999:6;2052:2;2040:9;2031:7;2027:23;2023:32;2020:52;;;2068:1;2065;2058:12;2020:52;2094:23;;-1:-1:-1;;;;;2146:31:27;;2136:42;;2126:70;;2192:1;2189;2182:12;2126:70;2215:5;1940:286;-1:-1:-1;;;1940:286:27:o;2231:619::-;2408:6;2397:9;2390:25;2371:4;2434:2;2472;2467;2456:9;2452:18;2445:30;2504:6;2498:13;2547:6;2542:2;2531:9;2527:18;2520:34;2572:1;2582:140;2596:6;2593:1;2590:13;2582:140;;;2691:14;;;2687:23;;2681:30;2657:17;;;2676:2;2653:26;2646:66;2611:10;;2582:140;;;2586:3;2771:1;2766:2;2757:6;2746:9;2742:22;2738:31;2731:42;2841:2;2834;2830:7;2825:2;2817:6;2813:15;2809:29;2798:9;2794:45;2790:54;2782:62;;;;2231:619;;;;;:::o;3197:127::-;3258:10;3253:3;3249:20;3246:1;3239:31;3289:4;3286:1;3279:15;3313:4;3310:1;3303:15",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "ballots(uint256)": "5c632b38",
+    "createBallot(bytes32,string)": "b49055f6",
+    "getBallot(uint256)": "f9d5ee75",
+    "getNumberOfBallots()": "52e2d6e9",
+    "owner()": "8da5cb5b",
+    "renounceOwnership()": "715018a6",
+    "transferOwnership(address)": "f2fde38b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ballotAddress\",\"type\":\"address\"}],\"name\":\"BallotCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"ballots\",\"outputs\":[{\"internalType\":\"contract Ballot\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"root\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"text\",\"type\":\"string\"}],\"name\":\"createBallot\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getBallot\",\"outputs\":[{\"internalType\":\"contract Ballot\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getNumberOfBallots\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/BallotFactory.sol\":\"BallotFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/access/Ownable.sol\":{\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6\",\"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a\"]},\"lib/openzeppelin-contracts/contracts/utils/Context.sol\":{\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12\",\"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF\"]},\"lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol\":{\"keccak256\":\"0x6400c4bee15052e043e5d10315135972529bd1c8012f43da494dc6b4f4661058\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://da5d3d47d35af4373743a559ea4b9b7ecfe4bab6f0703f410c1e59959b7966ac\",\"dweb:/ipfs/QmTHdoghh4WLu4yURjGEgRk162pcwwdsG52MPGa12GqnGR\"]},\"src/Ballot.sol\":{\"keccak256\":\"0xb3995ec7e9cbb02e17d1e4da0c0dadae855bfb40f7b96d59baa86aac6eda1429\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://82f3a629adeb0adf98ea43f2289e5862fb877bf17d6881dcb8db7e80b1657384\",\"dweb:/ipfs/QmRptgjMAQcwKu1ph74HJLnNbMLG2jGyZ4TsjzZjupWoQB\"]},\"src/BallotFactory.sol\":{\"keccak256\":\"0x8b212cda797afaf7640cd07ac58110a93ced5c9143e5c274b2ffac13e2b62267\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b63c94b3e1732275eed805ba8d5eec7a3c2becb5f61a85123d131c3321b72f3b\",\"dweb:/ipfs/QmbtEEPiB9acd4YvrVNYvdX9eqW4RSGKeXdTPiMdovDTwt\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.23+commit.f704f362" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "owner", "type": "address" }
+          ],
+          "type": "error",
+          "name": "OwnableInvalidOwner"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "OwnableUnauthorizedAccount"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "ballotAddress",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "BallotCreated",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferred",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "", "type": "uint256" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ballots",
+          "outputs": [
+            { "internalType": "contract Ballot", "name": "", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "root", "type": "bytes32" },
+            { "internalType": "string", "name": "text", "type": "string" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createBallot"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getBallot",
+          "outputs": [
+            { "internalType": "contract Ballot", "name": "", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getNumberOfBallots",
+          "outputs": [
+            { "internalType": "uint256", "name": "", "type": "uint256" }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "owner",
+          "outputs": [
+            { "internalType": "address", "name": "", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "renounceOwnership"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "newOwner", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferOwnership"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "owner()": { "details": "Returns the address of the current owner." },
+          "renounceOwnership()": {
+            "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+          },
+          "transferOwnership(address)": {
+            "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        "forge-std/=lib/forge-std/src/",
+        "openzeppelin-contracts/=lib/openzeppelin-contracts/"
+      ],
+      "optimizer": { "enabled": true, "runs": 200 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/BallotFactory.sol": "BallotFactory" },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+        "keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+        "urls": [
+          "bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+          "dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+        ],
+        "license": "MIT"
+      },
+      "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+        "keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+        "urls": [
+          "bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+          "dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+        ],
+        "license": "MIT"
+      },
+      "lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol": {
+        "keccak256": "0x6400c4bee15052e043e5d10315135972529bd1c8012f43da494dc6b4f4661058",
+        "urls": [
+          "bzz-raw://da5d3d47d35af4373743a559ea4b9b7ecfe4bab6f0703f410c1e59959b7966ac",
+          "dweb:/ipfs/QmTHdoghh4WLu4yURjGEgRk162pcwwdsG52MPGa12GqnGR"
+        ],
+        "license": "MIT"
+      },
+      "src/Ballot.sol": {
+        "keccak256": "0xb3995ec7e9cbb02e17d1e4da0c0dadae855bfb40f7b96d59baa86aac6eda1429",
+        "urls": [
+          "bzz-raw://82f3a629adeb0adf98ea43f2289e5862fb877bf17d6881dcb8db7e80b1657384",
+          "dweb:/ipfs/QmRptgjMAQcwKu1ph74HJLnNbMLG2jGyZ4TsjzZjupWoQB"
+        ],
+        "license": "MIT"
+      },
+      "src/BallotFactory.sol": {
+        "keccak256": "0x8b212cda797afaf7640cd07ac58110a93ced5c9143e5c274b2ffac13e2b62267",
+        "urls": [
+          "bzz-raw://b63c94b3e1732275eed805ba8d5eec7a3c2becb5f61a85123d131c3321b72f3b",
+          "dweb:/ipfs/QmbtEEPiB9acd4YvrVNYvdX9eqW4RSGKeXdTPiMdovDTwt"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/BallotFactory.sol",
+    "id": 45508,
+    "exportedSymbols": {
+      "Ballot": [45421],
+      "BallotFactory": [45507],
+      "Context": [44758],
+      "MerkleProof": [45295],
+      "Ownable": [44728]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:747:24",
+    "nodes": [
+      {
+        "id": 45423,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:24",
+        "nodes": [],
+        "literals": ["solidity", "^", "0.8", ".0"]
+      },
+      {
+        "id": 45424,
+        "nodeType": "ImportDirective",
+        "src": "57:52:24",
+        "nodes": [],
+        "absolutePath": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "file": "@openzeppelin/contracts/access/Ownable.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 45508,
+        "sourceUnit": 44729,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 45425,
+        "nodeType": "ImportDirective",
+        "src": "110:22:24",
+        "nodes": [],
+        "absolutePath": "src/Ballot.sol",
+        "file": "./Ballot.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 45508,
+        "sourceUnit": 45422,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 45507,
+        "nodeType": "ContractDefinition",
+        "src": "134:644:24",
+        "nodes": [
+          {
+            "id": 45431,
+            "nodeType": "VariableDeclaration",
+            "src": "174:23:24",
+            "nodes": [],
+            "constant": false,
+            "functionSelector": "5c632b38",
+            "mutability": "mutable",
+            "name": "ballots",
+            "nameLocation": "190:7:24",
+            "scope": 45507,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_Ballot_$45421_$dyn_storage",
+              "typeString": "contract Ballot[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 45429,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 45428,
+                  "name": "Ballot",
+                  "nameLocations": ["174:6:24"],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 45421,
+                  "src": "174:6:24"
+                },
+                "referencedDeclaration": 45421,
+                "src": "174:6:24",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_Ballot_$45421",
+                  "typeString": "contract Ballot"
+                }
+              },
+              "id": 45430,
+              "nodeType": "ArrayTypeName",
+              "src": "174:8:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_Ballot_$45421_$dyn_storage_ptr",
+                "typeString": "contract Ballot[]"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 45439,
+            "nodeType": "FunctionDefinition",
+            "src": "204:36:24",
+            "nodes": [],
+            "body": {
+              "id": 45438,
+              "nodeType": "Block",
+              "src": "238:2:24",
+              "nodes": [],
+              "statements": []
+            },
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "expression": {
+                      "id": 45434,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -15,
+                      "src": "226:3:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 45435,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberLocation": "230:6:24",
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "src": "226:10:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 45436,
+                "kind": "baseConstructorSpecifier",
+                "modifierName": {
+                  "id": 45433,
+                  "name": "Ownable",
+                  "nameLocations": ["218:7:24"],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 44728,
+                  "src": "218:7:24"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "218:19:24"
+              }
+            ],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "parameters": {
+              "id": 45432,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "215:2:24"
+            },
+            "returnParameters": {
+              "id": 45437,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "238:0:24"
+            },
+            "scope": 45507,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "id": 45443,
+            "nodeType": "EventDefinition",
+            "src": "246:43:24",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "165f4a0bebf649c196135ba0519a9a51da33d33a9e4d096b71050c2c97ec670f",
+            "name": "BallotCreated",
+            "nameLocation": "252:13:24",
+            "parameters": {
+              "id": 45442,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 45441,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ballotAddress",
+                  "nameLocation": "274:13:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 45443,
+                  "src": "266:21:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 45440,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "266:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "265:23:24"
+            }
+          },
+          {
+            "id": 45476,
+            "nodeType": "FunctionDefinition",
+            "src": "295:212:24",
+            "nodes": [],
+            "body": {
+              "id": 45475,
+              "nodeType": "Block",
+              "src": "368:139:24",
+              "nodes": [],
+              "statements": [
+                {
+                  "assignments": [45454],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 45454,
+                      "mutability": "mutable",
+                      "name": "newBallot",
+                      "nameLocation": "385:9:24",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 45475,
+                      "src": "378:16:24",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Ballot_$45421",
+                        "typeString": "contract Ballot"
+                      },
+                      "typeName": {
+                        "id": 45453,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 45452,
+                          "name": "Ballot",
+                          "nameLocations": ["378:6:24"],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 45421,
+                          "src": "378:6:24"
+                        },
+                        "referencedDeclaration": 45421,
+                        "src": "378:6:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Ballot_$45421",
+                          "typeString": "contract Ballot"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 45461,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 45458,
+                        "name": "root",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 45445,
+                        "src": "408:4:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 45459,
+                        "name": "text",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 45447,
+                        "src": "414:4:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 45457,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "397:10:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_bytes32_$_t_string_memory_ptr_$returns$_t_contract$_Ballot_$45421_$",
+                        "typeString": "function (bytes32,string memory) returns (contract Ballot)"
+                      },
+                      "typeName": {
+                        "id": 45456,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 45455,
+                          "name": "Ballot",
+                          "nameLocations": ["401:6:24"],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 45421,
+                          "src": "401:6:24"
+                        },
+                        "referencedDeclaration": 45421,
+                        "src": "401:6:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Ballot_$45421",
+                          "typeString": "contract Ballot"
+                        }
+                      }
+                    },
+                    "id": 45460,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "397:22:24",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Ballot_$45421",
+                      "typeString": "contract Ballot"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "378:41:24"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 45465,
+                        "name": "newBallot",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 45454,
+                        "src": "442:9:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Ballot_$45421",
+                          "typeString": "contract Ballot"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_Ballot_$45421",
+                          "typeString": "contract Ballot"
+                        }
+                      ],
+                      "expression": {
+                        "id": 45462,
+                        "name": "ballots",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 45431,
+                        "src": "429:7:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_contract$_Ballot_$45421_$dyn_storage",
+                          "typeString": "contract Ballot[] storage ref"
+                        }
+                      },
+                      "id": 45464,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "437:4:24",
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "429:12:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_contract$_Ballot_$45421_$dyn_storage_ptr_$_t_contract$_Ballot_$45421_$returns$__$attached_to$_t_array$_t_contract$_Ballot_$45421_$dyn_storage_ptr_$",
+                        "typeString": "function (contract Ballot[] storage pointer,contract Ballot)"
+                      }
+                    },
+                    "id": 45466,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "429:23:24",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 45467,
+                  "nodeType": "ExpressionStatement",
+                  "src": "429:23:24"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 45471,
+                            "name": "newBallot",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 45454,
+                            "src": "489:9:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_Ballot_$45421",
+                              "typeString": "contract Ballot"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_Ballot_$45421",
+                              "typeString": "contract Ballot"
+                            }
+                          ],
+                          "id": 45470,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "481:7:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 45469,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "481:7:24",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 45472,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "481:18:24",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 45468,
+                      "name": "BallotCreated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 45443,
+                      "src": "467:13:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 45473,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "467:33:24",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 45474,
+                  "nodeType": "EmitStatement",
+                  "src": "462:38:24"
+                }
+              ]
+            },
+            "functionSelector": "b49055f6",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 45450,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 45449,
+                  "name": "onlyOwner",
+                  "nameLocations": ["358:9:24"],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 44639,
+                  "src": "358:9:24"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "358:9:24"
+              }
+            ],
+            "name": "createBallot",
+            "nameLocation": "304:12:24",
+            "parameters": {
+              "id": 45448,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 45445,
+                  "mutability": "mutable",
+                  "name": "root",
+                  "nameLocation": "325:4:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 45476,
+                  "src": "317:12:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 45444,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "317:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 45447,
+                  "mutability": "mutable",
+                  "name": "text",
+                  "nameLocation": "345:4:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 45476,
+                  "src": "331:18:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 45446,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "331:6:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "316:34:24"
+            },
+            "returnParameters": {
+              "id": 45451,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "368:0:24"
+            },
+            "scope": 45507,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "id": 45497,
+            "nodeType": "FunctionDefinition",
+            "src": "513:159:24",
+            "nodes": [],
+            "body": {
+              "id": 45496,
+              "nodeType": "Block",
+              "src": "576:96:24",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 45488,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 45485,
+                          "name": "index",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 45478,
+                          "src": "594:5:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<",
+                        "rightExpression": {
+                          "expression": {
+                            "id": 45486,
+                            "name": "ballots",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 45431,
+                            "src": "602:7:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_contract$_Ballot_$45421_$dyn_storage",
+                              "typeString": "contract Ballot[] storage ref"
+                            }
+                          },
+                          "id": 45487,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "610:6:24",
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "src": "602:14:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "594:22:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "496e76616c696420696e646578",
+                        "id": 45489,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "618:15:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_32cc480c4f0e15e5ce7060ec5e004886ed5a15831cba1ff1aa7cb787be55bb60",
+                          "typeString": "literal_string \"Invalid index\""
+                        },
+                        "value": "Invalid index"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        { "typeIdentifier": "t_bool", "typeString": "bool" },
+                        {
+                          "typeIdentifier": "t_stringliteral_32cc480c4f0e15e5ce7060ec5e004886ed5a15831cba1ff1aa7cb787be55bb60",
+                          "typeString": "literal_string \"Invalid index\""
+                        }
+                      ],
+                      "id": 45484,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [-18, -18],
+                      "referencedDeclaration": -18,
+                      "src": "586:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 45490,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "586:48:24",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 45491,
+                  "nodeType": "ExpressionStatement",
+                  "src": "586:48:24"
+                },
+                {
+                  "expression": {
+                    "baseExpression": {
+                      "id": 45492,
+                      "name": "ballots",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 45431,
+                      "src": "651:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_Ballot_$45421_$dyn_storage",
+                        "typeString": "contract Ballot[] storage ref"
+                      }
+                    },
+                    "id": 45494,
+                    "indexExpression": {
+                      "id": 45493,
+                      "name": "index",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 45478,
+                      "src": "659:5:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "651:14:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Ballot_$45421",
+                      "typeString": "contract Ballot"
+                    }
+                  },
+                  "functionReturnParameters": 45483,
+                  "id": 45495,
+                  "nodeType": "Return",
+                  "src": "644:21:24"
+                }
+              ]
+            },
+            "functionSelector": "f9d5ee75",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBallot",
+            "nameLocation": "522:9:24",
+            "parameters": {
+              "id": 45479,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 45478,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "540:5:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 45497,
+                  "src": "532:13:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 45477,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "532:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "531:15:24"
+            },
+            "returnParameters": {
+              "id": 45483,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 45482,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 45497,
+                  "src": "568:6:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_Ballot_$45421",
+                    "typeString": "contract Ballot"
+                  },
+                  "typeName": {
+                    "id": 45481,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 45480,
+                      "name": "Ballot",
+                      "nameLocations": ["568:6:24"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 45421,
+                      "src": "568:6:24"
+                    },
+                    "referencedDeclaration": 45421,
+                    "src": "568:6:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Ballot_$45421",
+                      "typeString": "contract Ballot"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "567:8:24"
+            },
+            "scope": 45507,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "id": 45506,
+            "nodeType": "FunctionDefinition",
+            "src": "678:98:24",
+            "nodes": [],
+            "body": {
+              "id": 45505,
+              "nodeType": "Block",
+              "src": "738:38:24",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "expression": {
+                      "id": 45502,
+                      "name": "ballots",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 45431,
+                      "src": "755:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_Ballot_$45421_$dyn_storage",
+                        "typeString": "contract Ballot[] storage ref"
+                      }
+                    },
+                    "id": 45503,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberLocation": "763:6:24",
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "src": "755:14:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 45501,
+                  "id": 45504,
+                  "nodeType": "Return",
+                  "src": "748:21:24"
+                }
+              ]
+            },
+            "functionSelector": "52e2d6e9",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getNumberOfBallots",
+            "nameLocation": "687:18:24",
+            "parameters": {
+              "id": 45498,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "705:2:24"
+            },
+            "returnParameters": {
+              "id": 45501,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 45500,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 45506,
+                  "src": "729:7:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 45499,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "729:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "728:9:24"
+            },
+            "scope": 45507,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 45426,
+              "name": "Ownable",
+              "nameLocations": ["160:7:24"],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 44728,
+              "src": "160:7:24"
+            },
+            "id": 45427,
+            "nodeType": "InheritanceSpecifier",
+            "src": "160:7:24"
+          }
+        ],
+        "canonicalName": "BallotFactory",
+        "contractDependencies": [45421],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [45507, 44728, 44758],
+        "name": "BallotFactory",
+        "nameLocation": "143:13:24",
+        "scope": 45508,
+        "usedErrors": [44594, 44599],
+        "usedEvents": [44605, 45443]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 24
+}

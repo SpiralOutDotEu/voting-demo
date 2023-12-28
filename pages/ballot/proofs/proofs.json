@@ -1,0 +1,17 @@
+{
+  "root": "0x9b997e5d2dff07713bd6b0bbdc4cf3f6019d0b175b1ae0cb5b0b2ea6f1eec7f3",
+  "proofs": [
+    {
+      "address": "0x6Bf124651895a69cE0824977E3eD9799D32E7BB3",
+      "proof": [
+        "0xe6a1a53cb5785076f5f7cc44eb620bd5828b19a187f9ed8534058d5bba27c2af"
+      ]
+    },
+    {
+      "address": "0x4F6f611A6d05892518c6C21617C76d336b857A7c",
+      "proof": [
+        "0xbad3d3cfecbf7dcb61665b6a3a149f9e600c9eff60a41b67c0f8197908181550"
+      ]
+    }
+  ]
+}
